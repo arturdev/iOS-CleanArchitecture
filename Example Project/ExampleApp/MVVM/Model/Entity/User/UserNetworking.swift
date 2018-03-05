@@ -7,9 +7,8 @@
 //
 
 import Foundation
-import RxSwift
 
 protocol UserNetworking {
-    func getPopularUsers() -> Observable<[User]>
-    func getRepos(of username:String) -> Observable<[Repo]>    
+    func getPopularUsers(completion handler:((Error?, [User]?)->Void)?)
+    func getRepos(of username:String, completion handler:((Error?, [Repo]?)->Void)?)
 }

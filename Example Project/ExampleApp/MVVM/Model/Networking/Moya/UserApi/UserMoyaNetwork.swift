@@ -9,31 +9,22 @@
 import Foundation
 import Moya
 import ObjectMapper
-import RxSwift
-import RxCocoa
 
 struct UserMoyaNetwork: UserNetworking {
-
-    private let reachability = try? DefaultReachabilityService()
     fileprivate let provider = MoyaProvider<UserMoyaApi>()
     
-    func getPopularUsers() -> Observable<[User]> {
-        return provider.rx.request(.getPopularUsers())
-            .asObservable()
-            .map({
-                let json = (try? $0.mapJSON()) as? [String:Any]
-                let users = Mapper<User>().mapArray(JSONObject: json?["items"]) ?? []
-                return users
-            })
-            .share()
+    func getPopularUsers(completion handler: ((Error?, [User]?)->Void)?) {
+        provider.request(.getPopularUsers()) { (result) in
+            let json = (try? result.value?.mapJSON()) as? [String:Any]
+            let users = Mapper<User>().mapArray(JSONObject: json?["items"])
+            handler?(result.error, users)            
+        }
     }
     
-    func getRepos(of username: String) -> Observable<[Repo]> {
-//        guard let reachability = reachability else { return Observable.of([])}
-        return provider.rx.request(.getRepos(username))
-            .asObservable()
-            .map({ Mapper<Repo>().mapArray(JSONObject: try? $0.mapJSON()) ?? [] })
-//            .retryOnBecomesReachable([], reachabilityService: reachability)
-            .share()
-    }        
+    func getRepos(of username: String, completion handler: ((Error?, [Repo]?)->Void)?) {
+        provider.request(.getRepos(username)) { (result) in
+            let repos = Mapper<Repo>().mapArray(JSONObject: (try? result.value?.mapJSON()) ?? nil)
+            handler?(result.error, repos)
+        }
+    }
 }

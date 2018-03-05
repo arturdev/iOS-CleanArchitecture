@@ -7,10 +7,9 @@
 //
 
 import Foundation
-import RxSwift
 
 protocol RepoNetworking {
-    func fetchStargazes(of repo:String) -> Observable<[User]>
-    func fetchContributors(of repo:String) -> Observable<[User]>
-    func fetchWatchers(of repo:String) -> Observable<[User]>
+    func fetchStargazes(of repo:String, completion handler:((Error?, [User]?)->Void)?)
+    func fetchContributors(of repo:String, completion handler:((Error?, [User]?)->Void)?)
+    func fetchWatchers(of repo:String, completion handler:((Error?, [User]?)->Void)?)
 }

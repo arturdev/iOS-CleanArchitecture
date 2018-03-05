@@ -7,9 +7,8 @@
 //
 
 import Foundation
-import RxCocoa
 
 protocol RepoListViewModelling: BaseViewModelling {
-    var repoCellViewModels: BehaviorRelay<[RepoCellViewModelling]> {get}
-    func fetchRepos()
+    var repoCellViewModels: [RepoCellViewModelling]? {get}
+    func fetchRepos(completion handler:(()->Void)?)
 }

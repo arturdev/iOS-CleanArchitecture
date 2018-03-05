@@ -7,10 +7,8 @@
 //
 
 import Foundation
-import RxSwift
-import RxCocoa
 
-protocol UserListViewModelling: BaseViewModelling {
-    var userCellViewModels: BehaviorRelay<[UserCellViewModelling]> {get}    
-    func fetchUsers()
+protocol UserListViewModelling: BaseViewModelling {    
+    var userCellViewModels: [UserCellViewModelling]? {get}
+    func fetchUsers(completion handler:(()->Void)?)
 }

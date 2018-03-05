@@ -7,10 +7,8 @@
 //
 
 import Foundation
-import RxCocoa
 
 protocol BaseViewModelling {
     var title: String? {get}
-    var showLoading: BehaviorRelay<Bool> {get}    
-    var error: BehaviorRelay<NetworkError?> {get}
+    var didError: ((Error)->Void)? {get set}
 }

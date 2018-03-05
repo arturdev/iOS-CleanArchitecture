@@ -44,10 +44,6 @@
 		753601C5204830170016BFCB /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 753601C3204830170016BFCB /* UserCell.xib */; };
 		753601C7204835A20016BFCB /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753601C6204835A20016BFCB /* UITableView+Extensions.swift */; };
 		753601C920483C8A0016BFCB /* RepoListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753601C820483C8A0016BFCB /* RepoListVC.swift */; };
-		7537F81820497F3300F2EE80 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7537F81720497F3300F2EE80 /* NetworkError.swift */; };
-		7537F81A204B4F3000F2EE80 /* RXSwift+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7537F819204B4F3000F2EE80 /* RXSwift+Extensions.swift */; };
-		7537F81E204B5C9900F2EE80 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7537F81C204B5C9900F2EE80 /* Reachability.swift */; };
-		7537F81F204B5C9A00F2EE80 /* ReachabilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7537F81D204B5C9900F2EE80 /* ReachabilityService.swift */; };
 		758B67DC2048452A00426336 /* RepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758B67DA2048452A00426336 /* RepoCell.swift */; };
 		758B67DD2048452A00426336 /* RepoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 758B67DB2048452A00426336 /* RepoCell.xib */; };
 		758B67E1204875E800426336 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758B67E0204875E800426336 /* Int+Extensions.swift */; };
@@ -114,10 +110,6 @@
 		753601C3204830170016BFCB /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
 		753601C6204835A20016BFCB /* UITableView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
 		753601C820483C8A0016BFCB /* RepoListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListVC.swift; sourceTree = "<group>"; };
-		7537F81720497F3300F2EE80 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
-		7537F819204B4F3000F2EE80 /* RXSwift+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RXSwift+Extensions.swift"; sourceTree = "<group>"; };
-		7537F81C204B5C9900F2EE80 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
-		7537F81D204B5C9900F2EE80 /* ReachabilityService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityService.swift; sourceTree = "<group>"; };
 		758B67DA2048452A00426336 /* RepoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCell.swift; sourceTree = "<group>"; };
 		758B67DB2048452A00426336 /* RepoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepoCell.xib; sourceTree = "<group>"; };
 		758B67E0204875E800426336 /* Int+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
@@ -214,7 +206,6 @@
 			children = (
 				75360175204714930016BFCB /* Config */,
 				7536016E204714930016BFCB /* Extensions */,
-				7537F81B204B5C7E00F2EE80 /* Helper */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -246,7 +237,6 @@
 				753601C6204835A20016BFCB /* UITableView+Extensions.swift */,
 				75360171204714930016BFCB /* Localization */,
 				758B67E0204875E800426336 /* Int+Extensions.swift */,
-				7537F819204B4F3000F2EE80 /* RXSwift+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -274,7 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				75360169204713CF0016BFCB /* Networking */,
-				7537F820204D589800F2EE80 /* Entity */,
+				7537F821204D592F00F2EE80 /* Entity */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -423,27 +413,9 @@
 			path = UserCell;
 			sourceTree = "<group>";
 		};
-		7537F81620497F1F00F2EE80 /* Error */ = {
+		7537F821204D592F00F2EE80 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				7537F81720497F3300F2EE80 /* NetworkError.swift */,
-			);
-			path = Error;
-			sourceTree = "<group>";
-		};
-		7537F81B204B5C7E00F2EE80 /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				7537F81C204B5C9900F2EE80 /* Reachability.swift */,
-				7537F81D204B5C9900F2EE80 /* ReachabilityService.swift */,
-			);
-			path = Helper;
-			sourceTree = "<group>";
-		};
-		7537F820204D589800F2EE80 /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-				7537F81620497F1F00F2EE80 /* Error */,
 				7536019A204744FE0016BFCB /* Repo */,
 				75360199204744F70016BFCB /* User */,
 			);
@@ -723,7 +695,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				752E16D520483FF10073C355 /* RepoCellViewModel.swift in Sources */,
-				7537F81A204B4F3000F2EE80 /* RXSwift+Extensions.swift in Sources */,
 				7536017B204714930016BFCB /* Bundle+Localization.swift in Sources */,
 				7536019E204745190016BFCB /* UserNetworking.swift in Sources */,
 				753601AB204749DD0016BFCB /* RepoMoyaApi.swift in Sources */,
@@ -734,11 +705,9 @@
 				753601B12047EB7A0016BFCB /* UserListVC.swift in Sources */,
 				7536014A204713700016BFCB /* AppDelegate.swift in Sources */,
 				7536017A204714930016BFCB /* UIView+Localization.swift in Sources */,
-				7537F81F204B5C9A00F2EE80 /* ReachabilityService.swift in Sources */,
 				753601BC2048221D0016BFCB /* BaseViewModelling.swift in Sources */,
 				752E16D320483FD70073C355 /* RepoCellViewModelling.swift in Sources */,
 				753601B720480E950016BFCB /* UserListViewModel.swift in Sources */,
-				7537F81E204B5C9900F2EE80 /* Reachability.swift in Sources */,
 				753601C920483C8A0016BFCB /* RepoListVC.swift in Sources */,
 				753601B92048142E0016BFCB /* UserListViewModelling.swift in Sources */,
 				753601C4204830170016BFCB /* UserCell.swift in Sources */,
@@ -754,7 +723,6 @@
 				753601C7204835A20016BFCB /* UITableView+Extensions.swift in Sources */,
 				753601AD20474B070016BFCB /* RepoMoyaNetwork.swift in Sources */,
 				7536019C204745090016BFCB /* User.swift in Sources */,
-				7537F81820497F3300F2EE80 /* NetworkError.swift in Sources */,
 				752E16D7204840230073C355 /* RepoListViewModel.swift in Sources */,
 				75360179204714930016BFCB /* UIView+Nib.swift in Sources */,
 				753601A2204745740016BFCB /* UserMoyaApi.swift in Sources */,

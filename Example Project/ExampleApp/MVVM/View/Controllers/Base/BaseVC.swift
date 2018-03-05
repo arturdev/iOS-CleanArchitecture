@@ -7,13 +7,9 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
 
 class BaseVC: UIViewController {
 
-    let disposebag = DisposeBag()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     

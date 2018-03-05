@@ -45,13 +45,11 @@ extension UserMoyaApi: TargetType {
         }
     }
     
-    var validate: Bool {
-        return true
-    }
-    
     var headers: [String : String]? {
         return ["Content-Type":"application/json"]
     }
+    
+
 }
 
 

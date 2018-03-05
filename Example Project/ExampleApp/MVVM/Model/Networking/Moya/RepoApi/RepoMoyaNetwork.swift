@@ -9,29 +9,29 @@
 import Foundation
 import Moya
 import ObjectMapper
-import RxSwift
-import RxCocoa
 
 struct RepoMoyaNetwork: RepoNetworking {
     
     fileprivate let provider = MoyaProvider<RepoMoyaApi>()
     
-    func fetchStargazes(of repoFullName: String) -> Observable<[User]> {
-        return fetch(.fetchStargazes(repoFullName))
+    func fetchStargazes(of repoFullName: String, completion handler: ((Error?, [User]?) -> Void)?) {
+        provider.request(.fetchStargazes(repoFullName)) { (result) in
+            let users = Mapper<User>().mapArray(JSONObject: (try? result.value?.mapJSON()) ?? nil)
+            handler?(result.error, users)
+        }
     }
     
-    func fetchContributors(of repoFullName: String) -> Observable<[User]> {
-        return fetch(.fetchContributors(repoFullName))
+    func fetchContributors(of repoFullName: String, completion handler: ((Error?, [User]?) -> Void)?) {
+        provider.request(.fetchContributors(repoFullName)) { (result) in
+            let users = Mapper<User>().mapArray(JSONObject: (try? result.value?.mapJSON()) ?? nil)
+            handler?(result.error, users)
+        }
     }
     
-    func fetchWatchers(of repoFullName: String) -> Observable<[User]> {
-        return fetch(.fetchWatchers(repoFullName))
-    }
-    
-    private func fetch(_ req: RepoMoyaApi) -> Observable<[User]> {
-        return provider.rx.request(req)
-            .asObservable()
-            .map({ Mapper<User>().mapArray(JSONObject: (try? $0.mapJSON()) ?? nil)! })
-            .share()            
-    }
+    func fetchWatchers(of repoFullName: String, completion handler: ((Error?, [User]?) -> Void)?) {
+        provider.request(.fetchWatchers(repoFullName)) { (result) in
+            let users = Mapper<User>().mapArray(JSONObject: (try? result.value?.mapJSON()) ?? nil)
+            handler?(result.error, users)
+        }
+    }    
 }
